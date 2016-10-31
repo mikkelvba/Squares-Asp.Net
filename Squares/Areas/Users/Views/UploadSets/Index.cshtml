@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Squares.Models.Set>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.name</h2>
+
+<a class="button button-red">
+    @Html.ActionLink("Create New", "Create")
+</a>
+
+@foreach (var item in Model)
+{
+    <div class="uploadset">
+        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
+        <p>@Html.DisplayFor(modelItem => item.description)</p>
+        <p>@Html.DisplayFor(modelItem => item.User.username), @Html.DisplayFor(modelItem => item.creationDate)</p>
+        <div>
+        @foreach (var piece in item.Pieces)
+        {
+            <a href="@Url.Action("Details", "UploadPieces", new {id = piece.id})"><img src="@piece.imgURL_full" alt="" width="150" height="150" /></a>
+        }
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </p>
+    </div>
+}

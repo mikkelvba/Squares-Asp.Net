@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SquaresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="signupDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Piece">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="setId" Type="int" />
+          <Property Name="imgURL_thumb" Type="nvarchar(max)" />
+          <Property Name="imgURL_full" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="creationDate" Type="datetime" Nullable="false" />
+          <Property Name="likes" Type="int" />
+          <Property Name="sizeData" Type="int" />
+          <Property Name="combinationData" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="signupDate" Type="datetime" />
+          <Property Name="lastSignin" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Piece__setId__09A971A2">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Piece" Type="Self.Piece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Piece">
+              <PropertyRef Name="setId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Set__userId__05D8E0BE">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PROC_ChangeAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="fullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="passw" Type="nvarchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PROC_ChangeSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="sizeData" Type="int" Mode="In" />
+          <Parameter Name="combinationData" Type="nvarchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PROC_ChangeUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="fullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="passw" Type="nvarchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PROC_CreateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="fullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="passw" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="PROC_CreatePiece" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="setId" Type="int" Mode="In" />
+          <Parameter Name="thumb" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="full" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="PROC_CreateSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="userid" Type="int" Mode="In" />
+          <Parameter Name="sizeData" Type="int" Mode="In" />
+          <Parameter Name="combinationData" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="PROC_CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="fullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="passw" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="PROC_DeleteAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PROC_DeleteSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PROC_DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SquaresModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Piece" EntityType="Self.Piece" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Set" EntityType="Self.Set" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Piece__setId__09A971A2" Association="Self.FK__Piece__setId__09A971A2">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="Piece" EntitySet="Piece" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Set__userId__05D8E0BE" Association="Self.FK__Set__userId__05D8E0BE">
+            <End Role="User" EntitySet="User" />
+            <End Role="Set" EntitySet="Set" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SquaresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="signupDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Piece">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="setId" Type="Int32" />
+          <Property Name="imgURL_thumb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgURL_full" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Set" Relationship="Self.FK__Piece__setId__09A971A2" FromRole="Piece" ToRole="Set" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="likes" Type="Int32" />
+          <Property Name="sizeData" Type="Int32" />
+          <Property Name="combinationData" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pieces" Relationship="Self.FK__Piece__setId__09A971A2" FromRole="Set" ToRole="Piece" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Set__userId__05D8E0BE" FromRole="Set" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="signupDate" Type="DateTime" Precision="3" />
+          <Property Name="lastSignin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Sets" Relationship="Self.FK__Set__userId__05D8E0BE" FromRole="User" ToRole="Set" />
+        </EntityType>
+        <Association Name="FK__Piece__setId__09A971A2">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Piece" Type="Self.Piece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Piece">
+              <PropertyRef Name="setId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Set__userId__05D8E0BE">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SquaresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Pieces" EntityType="Self.Piece" />
+          <EntitySet Name="Sets" EntityType="Self.Set" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Piece__setId__09A971A2" Association="Self.FK__Piece__setId__09A971A2">
+            <End Role="Set" EntitySet="Sets" />
+            <End Role="Piece" EntitySet="Pieces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Set__userId__05D8E0BE" Association="Self.FK__Set__userId__05D8E0BE">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Set" EntitySet="Sets" />
+          </AssociationSet>
+          <FunctionImport Name="PROC_ChangeAdmin">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="fullName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="passw" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_ChangeSet">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="sizeData" Mode="In" Type="Int32" />
+            <Parameter Name="combinationData" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_ChangeUser">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="fullName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="passw" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CreateAdmin">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="fullName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="passw" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CreatePiece">
+            <Parameter Name="setId" Mode="In" Type="Int32" />
+            <Parameter Name="thumb" Mode="In" Type="String" />
+            <Parameter Name="full" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CreateSet">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="sizeData" Mode="In" Type="Int32" />
+            <Parameter Name="combinationData" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CreateUser">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="fullName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="passw" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_DeleteAdmin">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_DeleteSet">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_DeleteUser">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SquaresModelStoreContainer" CdmEntityContainer="SquaresEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="SquaresModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="signupDate" ColumnName="signupDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pieces">
+            <EntityTypeMapping TypeName="SquaresModel.Piece">
+              <MappingFragment StoreEntitySet="Piece">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="setId" ColumnName="setId" />
+                <ScalarProperty Name="imgURL_thumb" ColumnName="imgURL_thumb" />
+                <ScalarProperty Name="imgURL_full" ColumnName="imgURL_full" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sets">
+            <EntityTypeMapping TypeName="SquaresModel.Set">
+              <MappingFragment StoreEntitySet="Set">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="sizeData" ColumnName="sizeData" />
+                <ScalarProperty Name="combinationData" ColumnName="combinationData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SquaresModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="signupDate" ColumnName="signupDate" />
+                <ScalarProperty Name="lastSignin" ColumnName="lastSignin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PROC_ChangeAdmin" FunctionName="SquaresModel.Store.PROC_ChangeAdmin" />
+          <FunctionImportMapping FunctionImportName="PROC_ChangeSet" FunctionName="SquaresModel.Store.PROC_ChangeSet" />
+          <FunctionImportMapping FunctionImportName="PROC_ChangeUser" FunctionName="SquaresModel.Store.PROC_ChangeUser" />
+          <FunctionImportMapping FunctionImportName="PROC_CreateAdmin" FunctionName="SquaresModel.Store.PROC_CreateAdmin" />
+          <FunctionImportMapping FunctionImportName="PROC_CreatePiece" FunctionName="SquaresModel.Store.PROC_CreatePiece" />
+          <FunctionImportMapping FunctionImportName="PROC_CreateSet" FunctionName="SquaresModel.Store.PROC_CreateSet" />
+          <FunctionImportMapping FunctionImportName="PROC_CreateUser" FunctionName="SquaresModel.Store.PROC_CreateUser" />
+          <FunctionImportMapping FunctionImportName="PROC_DeleteAdmin" FunctionName="SquaresModel.Store.PROC_DeleteAdmin" />
+          <FunctionImportMapping FunctionImportName="PROC_DeleteSet" FunctionName="SquaresModel.Store.PROC_DeleteSet" />
+          <FunctionImportMapping FunctionImportName="PROC_DeleteUser" FunctionName="SquaresModel.Store.PROC_DeleteUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

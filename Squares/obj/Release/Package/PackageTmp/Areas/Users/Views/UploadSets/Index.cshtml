@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Squares.Models.Set>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.likes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sizeData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.likes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sizeData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.username)
+        </td>
+        <td>
+            @foreach (var piece in item.Pieces)
+            {
+                <a href="@Url.Action("Details", "UploadPieces", new {id = piece.id})"><img src="@piece.imgURL_full" alt="" width="150" height="150" /></a>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

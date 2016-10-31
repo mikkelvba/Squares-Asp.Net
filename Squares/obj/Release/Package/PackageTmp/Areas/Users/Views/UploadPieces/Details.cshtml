@@ -1,0 +1,42 @@
+﻿@model Squares.Models.Piece
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Piece</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.imgURL_thumb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgURL_thumb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imgURL_full)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgURL_full)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Set.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

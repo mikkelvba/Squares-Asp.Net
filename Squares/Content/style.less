@@ -1,0 +1,644 @@
+/* Define fonts */
+body {
+    font-family: 'helvetica neue', 'Helvetica', 'freesans', 'Arial', 'Liberation Sans', sans-serif;
+}
+
+/**********************************/
+/***********  COLORS  *************/
+/**********************************/
+
+/****** Color Palette ******/
+@red1: #7F111E; 
+@red2: #CB2337; 
+@red3: #ED475A; 
+@red4: #F86576; 
+@red5: #FC8795;
+    
+@teal1: #0B5448; 
+@teal2: #178674; 
+@teal3: #2F9D8A; 
+@teal4: #4EC0AD; 
+@teal5: #79E2D0;
+
+@lime1: #5F7D11; 
+@lime2: #9AC822; 
+@lime3: #BCE946; 
+@lime4: #CDF664; 
+@lime5: #DAFB87;
+
+
+/****** Additional Colors ******/
+@purewhite: #fff;
+@white: #f3f3f3;
+@black: #262626;
+@grey: #444444;
+
+
+
+
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+body,html,main,#editor-frame{
+	line-height: 1.6;
+    width: 100%;
+}
+
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a { 
+	color: @red3;
+}
+a:hover{
+    text-decoration: none;
+}
+h1{
+    letter-spacing: -1px;
+    font-size: 4.8em;
+    color: #262626;
+    font-weight: bold;
+    line-height: 1;
+    padding-bottom: 32px;
+}
+
+h2{
+    font-size: 1.25em;
+    color: @black;
+    padding:0px 0px 10px 0px ;
+}
+.inline{
+    display: inline-block;
+}
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Header ---- */
+header{
+    background: @red3;
+    height:52px;
+}
+.navbar {
+}
+.navbar a {
+    font-size:0.9em;
+    color:@white;
+    letter-spacing:1px;
+    text-transform: uppercase;
+}
+
+.navbar > li > a:focus, .nav > li > a:hover {
+    background-color: @red4;
+    color:@white;
+}
+
+.navbar .user-menu {
+    float:none;
+}
+
+.navbar-brand{
+    padding:10px;
+}
+.navbar-brand img{
+    height:32px;
+}
+
+.navbar-toggle {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIBJREFUeNrs3TEBAAAIwzDmXzQggo9EQ/+mV/FWBCAAAQgAASAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4ZholAAEIAAEgAASAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3TKMEIAABIAAEgAAQAALgjxFgALxWX7mpR91RAAAAAElFTkSuQmCC');
+    background-size:contain;
+    border-radius:0px;
+    background-repeat:no-repeat;
+}
+
+#main-nav{
+  line-height: 59px;  
+}
+#main-nav li{
+    display: inline-block;
+}
+#main-nav a{
+    padding:20px 5px 20px 7px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#secondary-nav li{
+    display: inline-block;
+    line-height: 59px;
+}
+#secondary-nav a {
+     padding: 5px 0px 5px 0px;
+     font-size:1em;
+     color: @black;
+}
+#secondary-nav a:hover {
+     color:@lime4;
+}
+.extra{
+    color:@white;
+}
+
+/* ---- Main ---- */
+body {
+    background:url(../Images/grid.png)
+}
+
+body, html {
+    min-width:320px;
+}
+.body-content {
+    margin-top:52px;    
+}
+
+#titles{
+    padding:96px 16px 32px 16px;
+    text-align:center;
+}
+
+
+.button{
+    font-weight: bold;
+    font-size:0.85em;
+    text-transform:uppercase;
+    padding: 20px 26px;
+    border:1px solid @teal3;
+    color:@teal3;
+    display:inline-block;
+    background: transparent;
+}
+
+.button-black{
+    border:1px solid @black;
+    color:@black;
+}
+
+.button-red{
+    border:1px solid @red3;
+    color:@red3;
+}
+
+.button-red-full{
+    border:1px solid @red3;
+    background: @red3;
+    color: #ffffff;
+}
+
+.button:hover {
+    color:@purewhite;
+    background:@teal3;
+}
+.button-black:hover {
+    background:@black;
+}
+
+.button-red:hover{
+    background:@red3;
+}
+
+.button-red-full:hover{
+    background:#ffffff;
+    color: @red3;
+}
+
+.title-buttons a{
+    margin:32px;
+}
+
+
+/* ---- Editor Settings ---- */
+#editor-frame{
+        padding:32px 0 0 0;
+        text-align: center;
+        position:relative;
+}
+
+#grid{
+    height: 70vw;
+     width: 70vw;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+
+}
+
+.grid-cell{
+    height: calc( 70vw / 3.0);
+    width: calc( 70vw / 3.0);
+    display: block;
+    position: relative;
+    outline:1px solid @red3;
+    outline-offset:-4px;
+}
+.square{
+    height: calc( 70vw / 3.0);
+    width: calc( 70vw / 3.0);
+    background-color: black;
+    display: inline-block;
+}
+.square-drag{
+    outline:1px dashed @red3;
+    outline-offset:-4px;
+}
+
+.rotation-desc {
+    font-size:0.85rem;
+    letter-spacing:0.5px;
+    color:@black;
+    padding-top:16px;
+    font-style:italic;
+}
+
+.pieces-zone {
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: center;
+    margin: 64px 0 0 0;
+    padding:32px;
+    border-top: 1px solid @black;
+    border-bottom: 1px solid @black;
+    background:@white;
+} /*Container for the area containing the pieces, below the grid.*/
+
+
+/* ---- Discover-Create ---- */
+
+.discover-create-outer {
+    margin:64px 0; 
+}
+
+.discover-create{
+    position: relative;
+    color: @teal5;
+    font-weight: bold;
+    margin:0px;
+}
+.discover-create-inner {
+    padding:64px 48px;
+    min-height: 260px;
+}
+
+.discover-create h4{
+    color:@black;
+    font-size:2.6rem;
+    line-height:1;
+    letter-spacing:-0.5px;
+    padding-bottom:16px;
+}
+
+.discover-create p{
+    font-size:1.2em;
+    color: @black;
+    font-weight:bold;
+    line-height:1.5;
+    padding-bottom:32px;
+}
+
+.discover-box-left{
+    border-top:1px solid;
+    border-bottom:1px solid;
+    border-right:none;
+    border-color:@red3;
+}
+.discover-box-right{
+    border-top:1px solid;
+    border-bottom:1px solid;
+    border-left:none;
+    border-color:@red3;
+}
+
+
+
+/* ---- Carousel ---- */
+#carousel {
+    margin-top: 1em;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+     max-width:100%;
+     margin: 0 auto;
+    
+  }
+
+.carousel-caption {
+    background:@white;   
+}
+
+.carousel-caption h3{
+    color:@black;
+    font-size:1.5em;
+    text-shadow:none;
+    letter-spacing:-0.5px;
+    font-weight:bold;
+}
+.carousel-caption p{
+    color:@black;
+    font-size:1em;
+    text-shadow:none;
+    letter-spacing:0px
+}
+
+.left.carousel-control,  .right.carousel-control {
+    background:inherit;   
+}
+
+.carousel-control .glyphicon {
+    text-shadow:none;   
+    color:@red3;
+}
+
+.carousel-indicators li {
+    border-color:@red3;
+}
+
+.carousel-indicators .active {
+    background:@red3;
+}
+
+/* ---- Footer ---- */
+
+footer {
+    text-align: left;
+    line-height: 30px;
+    font-size: 1em;
+    padding-top:48px;
+    margin-top:48px;
+    background:@red3;
+}
+footer a, footer p{
+    color:@white;   
+    text-decoration:none;
+}
+footer a:hover{
+    color:@red5;   
+}
+
+footer p:last-child {
+    float: right;
+    position:relative;
+    bottom:32px;
+    display:inline-block;
+    font-size: 0.9em;
+}
+ul.footermenu li {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    width:50%;
+}
+
+#outputfield {
+    position:absolute;
+    left:0;
+    width:100%;
+    font-size:10px;
+    background:inherit;
+    border:inherit;
+} /*Output field for the placement of the tiles in the grid.*/
+
+/* ---- Tables ---- */
+
+table,
+th,
+td {
+	border:1px solid rgba(0, 0, 0, 0.1);
+}
+
+table {
+    border-collapse:separate;
+    border-spacing:0;
+    border-width:1px 0 0 1px;
+    margin:0 0 1.5rem;
+    table-layout:fixed;
+    width:100%;
+}
+
+caption,
+th,
+td {
+    font-weight:normal;
+    text-align:left;
+}
+
+th {
+    border-width:0 1px 1px 0;
+    font-weight:bold;
+}
+
+td {
+    border-width:0 1px 1px 0;
+}
+
+th, td {
+    padding:0.5rem;
+}
+
+strong { 
+    font-weight: bold;
+}
+
+/* ---- Forms ---- */
+
+.form-group label {
+    display: block;
+}
+
+.form-group {
+    margin: 1rem 0;
+}
+
+.form-group .form-control,
+.form-group select,
+.form-group textarea {
+    line-height: normal;
+    display: block;
+    padding: 1.75rem;
+    margin: 1rem 0 1rem 0;
+    width: 70%;
+    border: 2px solid @red3;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-group .form-control:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: @red3;
+}
+
+.form-group .form-control:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: @red3;
+}
+
+/* ---- About ---- */
+
+.aboutimg img {
+    width: 100%;
+}
+
+.aboutcontenttop {
+    padding-right: 70px;
+}
+
+.aboutcontentbottom {
+    padding-left: 70px;
+}
+
+section.about-row {
+    margin: 30px 0px;
+    display: inline-block;
+}
+
+.about-row p {
+    letter-spacing: 0.3px;
+}
+
+.slogan {
+    margin-top: 20px;
+}
+
+.user-list-outer {
+text-align:center;
+}
+
+.user-list {
+    display:inline-block; 
+    text-align:left;
+    color:@black;
+}
+
+.user-list strong {
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:14px;
+}
+.user-buttons-outer {
+    text-align:center;
+    padding-top: 64px;
+}
+
+.signOutLink {
+    padding-top:64px;
+    text-transform:uppercase;
+    font-weight: bold;
+    font-size:14px;
+    display:block;   
+}
+
+
+
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media screen and (min-width: 768px) {
+    /* ---- Editor Settings ---- */
+#grid{
+    height: 50vw;
+     width: 50vw;
+    margin:0 auto;
+}
+.grid-cell{
+    height: calc( 50vw / 3.0);
+    width: calc( 50vw / 3.0);
+
+    
+}
+.square{
+    height: calc( 50vw / 3.0);
+    width: calc( 50vw / 3.0);
+}
+
+.navbar .user-menu {
+    float:right;
+}
+
+.navbar-nav>li>a {
+    text-decoration: none;
+}
+
+.discover-box-left{
+    border-top:1px solid;
+    border-bottom:1px solid;
+    border-right:1px solid;
+    border-color:@red3;
+}
+.discover-box-right{
+    border-top:1px solid;
+    border-bottom:1px solid;
+    border-left:1px solid;
+    border-color:@red3;
+}
+
+
+}
+
+
+@media screen and (min-width: 992px) {
+    /* ---- Editor Settings ---- */
+    #grid{
+    height: 40vw;
+     width: 40vw;
+    margin:0 auto;
+}
+.grid-cell{
+    height: calc( 40vw / 3.0);
+    width: calc( 40vw / 3.0);
+    display: block;
+    
+}
+.square{
+    height: calc( 40vw / 3.0);
+    width: calc( 40vw / 3.0);
+    background-color: black;
+    display: inline-block;
+}
+
+
+}
+
+@media screen and (min-width: 1200px) {
+    /* ---- Editor Settings ---- */
+
+    #grid{
+    height: 30vw;
+     width: 30vw;
+     width: 30vw;
+    margin:0px auto;
+      
+}
+.grid-cell{
+    height: calc( 30vw / 3.0);
+    width: calc( 30vw / 3.0);
+    display: block;
+    
+}
+.square{
+    height: calc( 30vw / 3.0);
+    width: calc( 30vw / 3.0);
+    background-color: black;
+    display: inline-block;
+}
+ 
+
+}
+
+

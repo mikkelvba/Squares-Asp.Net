@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SquaresModelStoreContainer" CdmEntityContainer="SquaresEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="SquaresModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="signupDate" ColumnName="signupDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pieces">
+      <EntityTypeMapping TypeName="SquaresModel.Piece">
+        <MappingFragment StoreEntitySet="Piece">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="setId" ColumnName="setId" />
+          <ScalarProperty Name="imgURL_thumb" ColumnName="imgURL_thumb" />
+          <ScalarProperty Name="imgURL_full" ColumnName="imgURL_full" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sets">
+      <EntityTypeMapping TypeName="SquaresModel.Set">
+        <MappingFragment StoreEntitySet="Set">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="sizeData" ColumnName="sizeData" />
+          <ScalarProperty Name="combinationData" ColumnName="combinationData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SquaresModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="signupDate" ColumnName="signupDate" />
+          <ScalarProperty Name="lastSignin" ColumnName="lastSignin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PROC_ChangeAdmin" FunctionName="SquaresModel.Store.PROC_ChangeAdmin" />
+    <FunctionImportMapping FunctionImportName="PROC_ChangeSet" FunctionName="SquaresModel.Store.PROC_ChangeSet" />
+    <FunctionImportMapping FunctionImportName="PROC_ChangeUser" FunctionName="SquaresModel.Store.PROC_ChangeUser" />
+    <FunctionImportMapping FunctionImportName="PROC_CreateAdmin" FunctionName="SquaresModel.Store.PROC_CreateAdmin" />
+    <FunctionImportMapping FunctionImportName="PROC_CreatePiece" FunctionName="SquaresModel.Store.PROC_CreatePiece" />
+    <FunctionImportMapping FunctionImportName="PROC_CreateSet" FunctionName="SquaresModel.Store.PROC_CreateSet" />
+    <FunctionImportMapping FunctionImportName="PROC_CreateUser" FunctionName="SquaresModel.Store.PROC_CreateUser" />
+    <FunctionImportMapping FunctionImportName="PROC_DeleteAdmin" FunctionName="SquaresModel.Store.PROC_DeleteAdmin" />
+    <FunctionImportMapping FunctionImportName="PROC_DeleteSet" FunctionName="SquaresModel.Store.PROC_DeleteSet" />
+    <FunctionImportMapping FunctionImportName="PROC_DeleteUser" FunctionName="SquaresModel.Store.PROC_DeleteUser" />
+  </EntityContainerMapping>
+</Mapping>

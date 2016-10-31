@@ -1,0 +1,359 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    top: 100px;
+    position: relative;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* NEW */
+
+.navbar-brand img {
+    max-width: 180px;
+    height: auto;
+}
+
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body,html,main,#editor-frame{
+	line-height: 1.6;
+    width: 100%;
+}
+
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a { 
+	color: black;
+	text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+h1{
+    font-size: 2em;
+    color: #79E2D0;
+    padding:5px 0px 0px 0px;
+
+    
+}
+h2{
+    font-size: 1.5em;
+    color: #79E2D0;
+    padding:0px 0px 10px 0px ;
+}
+.inline{
+    display: inline-block;
+}
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Header ---- */
+header{
+    background: #ED475C;
+}
+.logo{
+    height: 59px;
+    line-height: 55px;
+    
+}
+#main-nav{
+  line-height: 59px;  
+}
+#main-nav li{
+    display: inline-block;
+}
+#main-nav a{
+    padding:20px 5px 20px 7px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+#main-nav a:hover{
+    background-color: #7F111E;
+    color:#F86576;
+}
+
+#secondary-nav li{
+    display: inline-block;
+    line-height: 59px;
+}
+#secondary-nav a {
+     padding: 5px 0px 5px 0px;
+     font-size:1em;
+     color: black;
+}
+#secondary-nav a:hover {
+     color:yellowgreen;
+}
+.extra{
+    color:white;
+}
+
+/* ---- Main ---- */
+main{
+    background-image: url(../images/ideas.jpg);
+    width: 100vw;
+}
+main>h1{
+    margin-top: 40px;
+}
+main>h2{margin-top:10px;}
+
+#titles{
+ background:rgba(11,84,72,0.8);
+}
+
+/* ---- Editor Settings ---- */
+#editor-frame{
+        text-align: center;
+}
+
+#grid{
+    height: 70vw;
+     width: 70vw;
+    margin:0 auto;
+}
+.finger-cell{
+    background-image:url(../images/pointing-down.png);
+    background-position: center;
+    background-size: contain;
+}
+.smiley-cell{
+    background-image:url(../images/smiley.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.grid-cell{
+    height: calc( 70vw / 3.1);
+    width: calc( 70vw / 3.1);
+    display: inline-block;
+    background-color:  black;
+}
+.square{
+    height: calc( 70vw / 3.1);
+    width: calc( 70vw / 3.1);
+    background-color: black;
+    display: inline-block;
+}
+.square-drag{
+     outline: 2px dashed #CB2337;
+            outline-offset: -7px;
+}
+#square1{
+    background-image:url(../images/square1.jpg);
+    background-position: center;
+    background-size: contain;
+}
+#square2{
+    background-image:url(../images/square2.jpg);
+    background-position: center;
+    background-size: contain;
+}
+#square3{
+    background-image:url(../images/square3.jpg);
+    background-position: center;
+    background-size: contain;
+}
+#square4{
+    background-image:url(../images/square44.jpg);
+    background-position: center;
+    background-size: contain;
+}
+#square5{
+    background-image:url(../images/square5.jpg);
+    background-position: center;
+    background-size: contain;
+}
+#square6{
+    background-image:url(../images/square6.jpg);
+    background-position: center;
+    background-size: contain;
+}
+
+
+
+
+
+
+/* ---- Discover-Create ---- */
+.discover-create{
+    text-align: center;
+    height: 250px;
+    background:rgba(11,84,72,0.8);
+    text-align: center;
+    border: 1px solid black;
+    position: relative;
+    color: #79E2D0;
+    font-weight: bold;
+}
+
+.discover-create p{
+    padding:10px;
+    font-size:1.4em;
+    text-align: center;
+    color:#79E2D0;
+}
+.enter-button{
+    margin-top:10px;
+    width: 200px;
+    height: 50px;
+    background-color: #5F7D11;  
+    position: absolute;
+    bottom: 25px;
+    left:calc(50% - 100px);
+    color:#BCE946;
+    border:2px solid #BCE946;
+}
+
+       
+    
+}
+
+/* ---- Carousel ---- */
+/*WHY It DOES NOT CHAAANGE!*/
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+     max-width:100%;
+     margin: 0 auto;
+    
+  }
+
+.carousel-caption h3{
+    color:#DAFB87;
+    font-size:1.7em;
+     background:rgba(95, 125, 17,0.7)
+}
+.carousel-caption p{
+    color:#DAFB87;
+    font-size:1.3em;
+        background:rgba(95, 125, 17,0.7)
+}
+.glyphicon{
+        color:#DAFB87;
+}
+
+
+
+/* ---- Footer ---- */
+
+footer{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background:rgba(60,10,10,0.6);
+    color:#ED475A;
+    font-size: 1.3em;
+}
+
+
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media screen and (min-width: 768px) {
+    /* ---- Editor Settings ---- */
+#grid{
+    height: 50vw;
+     width: 50vw;
+    margin:0 auto;
+}
+.grid-cell{
+    height: calc( 50vw / 3.1);
+    width: calc( 50vw / 3.1);
+
+    
+}
+.square{
+    height: calc( 50vw / 3.1);
+    width: calc( 50vw / 3.1);
+}
+
+}
+
+
+@media screen and (min-width: 992px) {
+    /* ---- Editor Settings ---- */
+    #grid{
+    height: 40vw;
+     width: 40vw;
+    margin:0 auto;
+}
+.grid-cell{
+    height: calc( 40vw / 3.1);
+    width: calc( 40vw / 3.1);
+    display: inline-block;
+    
+}
+.square{
+    height: calc( 40vw / 3.1);
+    width: calc( 40vw / 3.1);
+    background-color: black;
+    display: inline-block;
+}
+
+
+}
+
+@media screen and (min-width: 1200px) {
+    /* ---- Editor Settings ---- */
+
+    #grid{
+    height: 40vw;
+     width: 40vw;
+     width: 40vw;
+    margin:0px auto;
+      
+}
+.grid-cell{
+    height: calc( 40vw / 3.1);
+    width: calc( 40vw / 3.1);
+    display: inline-block;
+    
+}
+.square{
+    height: calc( 40vw / 3.1);
+    width: calc( 40vw / 3.1);
+    background-color: black;
+    display: inline-block;
+}
+ 
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+﻿<h2>Panel</h2>
+
+@*@if (Request.IsAuthenticated)
+{
+    <strong>@Html.Encode(User.Identity.Name)</strong>
+    Html.ActionLink("Sign Out", "SignOut", "AdminSignIn");
+}
+else {
+    @Html.ActionLink("Sign Out", "SignOut", "AdminSignIn");
+}*@

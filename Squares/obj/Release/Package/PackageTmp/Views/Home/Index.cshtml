@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Squares";
+}
+
+<div id="titles">
+    <h1 class="text-center">Do you Square? </h1>
+    <h2 class="text-center">Then Drag and Drop it Like it's Hot!</h2>
+    <p class="text-center">Double click the individual tiles to rotate them.</p>
+</div>
+<br>
+
+        <!-- Editor       -->
+<section id="editor-frame">
+    <section id="grid">
+        <div class="grid-cell droppable" id="c1">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable smiley-cell" id="c2">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable" id="c3">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable" id="c4">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable finger-cell" id="c5">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable" id="c6">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable" id="c7">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable finger-cell" id="c8">
+            <div class="rotate-btn"></div>
+        </div>
+        <div class="grid-cell droppable" id="c9">
+            <div class="rotate-btn"></div>
+        </div>
+
+    </section>
+
+    <input type="text" id="outputfield">
+
+    <section class="pieces-zone">
+        <img alt="Piece" src="images/sets/freaks/15.jpg" class="square draggable" id="square1">
+        <img alt="Piece" src="images/sets/freaks/2.jpg" class="square draggable" id="square2">
+        <img alt="Piece" src="images/sets/freaks/4.jpg" class="square draggable" id="square3">
+        <img alt="Piece" src="images/sets/freaks/9.jpg" class="square draggable" id="square4">
+        <img alt="Piece" src="images/sets/freaks/11.jpg" class="square draggable" id="square5">
+        <img alt="Piece" src="images/sets/freaks/7.jpg" class="square draggable" id="square6">
+        <!--
+        <div class="square draggable" id="square1"></div>
+        <div class="square draggable" id="square2"></div>
+        <div class="square draggable" id="square3"></div>
+        <div class="square draggable" id="square4"></div>
+        <div class="square draggable" id="square5"></div>
+        <div class="square draggable" id="square6"></div>
+        OLD DUMMY SQUARES-->
+    </section>
+
+</section>
+
+
+<!-- Discover /Create        -->
+<section class="rel">
+
+    <div class="col-sm-6 discover-create">
+        <p> Design square sets and profit from the sales of your art-pieces!</p>
+        <p> Be your own Boss!</p>
+        <button class="enter-button">I am a creator</button>
+    </div>
+    <div class="col-sm-6 discover-create">
+        <p> Buy t-shirts, picture frames and printed designer square sets. </p>
+        <p> Mix squares your way! </p>
+        <button class="enter-button">I am an exlorer</button>
+    </div>
+
+</section>
+
+<section class="row">
+
+    <div id="carousel" class="col-xs-12">
+        <br>
+
+        <!--                Implement Carousel here fdsa-->
+
+        <div class="container">
+            <br>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item active">
+                        <img src="~/Images/carousel-1.jpg" alt="image1" width="600" height="600" class="img-responsive center-block">
+                        <div class="carousel-caption">
+                            <h3>Test</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Images/carousel-2.jpg" alt="image2" width="600" height="600" class="img-responsive center-block">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Images/carousel-3.jpg" alt="image3" width="600" height="600" class="img-responsive center-block">
+                        <div class="carousel-caption">
+                            <h3>Flowers</h3>
+                            <p>Beatiful flowers in Kolymbari, Crete.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<br>
